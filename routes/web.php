@@ -29,4 +29,4 @@ Route::middleware([
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->get('/courses', [CourseController::class, 'index'])->name('courses');
 
 //Course Create
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->post('/courses/{}', [CourseController::class, 'create'])->name('courses.create');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->post('/courses/{user}', [CourseController::class, 'create'])->name('courses.create');

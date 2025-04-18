@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use App\Models\User;
@@ -10,9 +11,15 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Courses/Index/Index');
+        $user = $request->user();
+
+        $courses = $user->courses;
+
+        return Inertia::render('Courses/Index/Index',[
+            'courses' => $courses
+        ]);
     }
     public function create(User $user) {
         $new_course = new Course();
