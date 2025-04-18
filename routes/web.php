@@ -30,3 +30,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',]
 
 //Course Create
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->post('/courses/{user}', [CourseController::class, 'create'])->name('courses.create');
+
+//View Course Individual
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->get('/courses/{course}', [CourseController::class, 'view'])->name('courses.view');
+
+//Course Edit
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->get('/courses/edit/{course}', [CourseController::class, 'edit'])->name('courses.edit');
+
+//Course update
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->put('/courses/edit/{course}', [CourseController::class, 'update'])->name('courses.update');
+
+//Course delete
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified',])->delete('/courses/edit/{course}', [CourseController::class, 'delete'])->name('courses.delete');

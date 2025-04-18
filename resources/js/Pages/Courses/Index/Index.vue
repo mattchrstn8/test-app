@@ -2,6 +2,8 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { router, usePage } from '@inertiajs/vue3';
 import MyCourses from './MyCourses.vue';
+import Container from '@/Components/Container.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const page = usePage()
 
@@ -21,16 +23,13 @@ const courseCreate = () => {
             </h2>
         </template>
 
-        <MyCourses :courses="courses" />
-
-        <div>
-            this is the data
-        </div>
-
-        <div>
-            <button @click="courseCreate()">click this</button>
-        </div>
-        
+        <Container class="py-4">
+            <MyCourses :courses="courses" />
+       
+            <div class="mt-8">
+            <PrimaryButton @click="courseCreate()">click this</PrimaryButton>
+            </div>
+        </Container>
         <div>
             {{ page.props.auth.user.id }}
         </div>
